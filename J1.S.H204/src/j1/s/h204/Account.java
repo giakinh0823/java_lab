@@ -13,16 +13,24 @@ public class Account {
 
     private String accountType;
 
-    public Account(Client c) {
-        this.accountType = c.clientType;
+    public Account(Client client) { //Tạo tài khoản với thông tin từ khách hàng(client)
+        this.accountType = client.clientType;
     }
 
-    public boolean process(Transaction t){
-        return t.isTransacionStatus();
+    public boolean process(Transaction transaction){ //xử lý giao dịch
+        return transaction.isTransacionStatus(); //Trả về trạng thái giao dịch
     }
     
-    public String getclient(){
+    public String getclient(){ //trả về kiểu khác hàng
         return accountType;
+    }
+
+    public String getAccountType() { //trả về kiểu khác hàng
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
  
 }

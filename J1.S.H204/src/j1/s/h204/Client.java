@@ -9,12 +9,11 @@ package j1.s.h204;
  *
  * @author giaki
  */
-public class Client {
-    String clientType;
+public class Client { //Khách hàng
+    String clientType; //kiểu khách hàng
 
     public Client(String clientType) {
         this.clientType = clientType;
     }
-    
     
 }
