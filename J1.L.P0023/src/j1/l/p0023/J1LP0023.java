@@ -6,7 +6,7 @@
 package j1.l.p0023;
 
 import util.Menu;
-import controler.ListProduct;
+import controler.ListFruit;
 import controler.ListShopping;
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class J1LP0023 {
     public static void main(String[] args) {
         // TODO code application logic here
         Menu menu = new Menu();
-        ListProduct listProduct = new ListProduct();
+        ListFruit listFruit = new ListFruit();
         ArrayList<String> options = new  ArrayList<String>();
         ListShopping listShopping = new ListShopping();
         options.add("Create Fruit");
@@ -35,16 +35,16 @@ public class J1LP0023 {
             int choice = menu.getChoice(options);
             switch(choice){
                 case 1:
-                    listProduct.createProduct();
+                    listFruit.createFruit();
                     break;
                 case 2:
-                    listProduct.updateProduct();
+                    listFruit.updateFruit();
                     break;
                 case 3:
                     listShopping.display();
                     break;
                 case 4:
-                    listShopping.shopping(listProduct);
+                    listShopping.shopping(listFruit);
                     break;
                 case 5:
                     break;

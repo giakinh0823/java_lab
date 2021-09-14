@@ -10,23 +10,23 @@ package model;
  * @author giaki
  */
 public class Order {
-    private Product product;
+    private Fruit fruit;
     private int quantity;
 
-    public Order(Product product, int quantity) {
-        this.product = product;
+    public Order(Fruit fruit, int quantity) {
+        this.fruit = fruit;
         this.quantity = quantity;
     }
 
     public Order() {
     }
 
-    public Product getProduct() {
-        return product;
+    public Fruit getFruit() {
+        return fruit;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setFruit(Fruit fruit) {
+        this.fruit = fruit;
     }
 
     public int getQuantity() {

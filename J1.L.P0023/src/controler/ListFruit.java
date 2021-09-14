@@ -6,7 +6,7 @@
 package controler;
 
 import util.Inputter;
-import model.Product;
+import model.Fruit;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,7 +14,7 @@ import java.util.Iterator;
  *
  * @author giaki
  */
-public class ListProduct extends ArrayList<Product> {
+public class ListFruit extends ArrayList<Fruit> {
 
     private final Inputter inputter = new Inputter();
     
@@ -32,28 +32,28 @@ public class ListProduct extends ArrayList<Product> {
         }
     }
 
-    public Product searchById(int id) {
-        for (Product product : this) {
-            if (product.getId() == id) {
-                return product;
+    public Fruit searchById(int id) {
+        for (Fruit fruit : this) {
+            if (fruit.getId() == id) {
+                return fruit;
             }
         }
         return null;
     }
 
-    public void addProduct(Product product) {
-        this.add(product);
+    public void addFruit(Fruit fruit) {
+        this.add(fruit);
         System.out.println("Add product success!");
     }
 
-    public void createProduct() {
+    public void createFruit() {
         while (true) {
             String name = inputter.inputString("Enter name product: ", "[a-zA-Z0-9 ]+");
             double price = inputter.inputDouble("Enter price: ", 0);
             int quantity = inputter.inputInt("Enter quantity: ", 0);
             String origin = inputter.inputString("Enter origin: ", "[a-zA-Z0-9 ]+");
-            Product product = new Product(name, price, quantity, origin);
-            this.add(product);
+            Fruit fruit = new Fruit(name, price, quantity, origin);
+            this.add(fruit);
             System.out.println("Create product success!");
             boolean oneMoreTime = inputter.inputYesNo("Continue create product (Y or N)?: ");
             if (!oneMoreTime) {
@@ -63,14 +63,14 @@ public class ListProduct extends ArrayList<Product> {
         }
     }
 
-    public void updateProduct() {
+    public void updateFruit() {
         displayHaveId();
         int id = inputter.inputInt("Enter id product: ", 0);
         if (searchById(id) != null) {
             int quantity = inputter.inputInt("Enter quantity: ", 0);
-            for (Product product : this) {
-                if (product.getId() == id) {
-                    product.setQuantity(quantity);
+            for (Fruit fruit : this) {
+                if (fruit.getId() == id) {
+                    fruit.setQuantity(quantity);
                     break;
                 }
             }
@@ -78,29 +78,17 @@ public class ListProduct extends ArrayList<Product> {
         } else {
             boolean isCreate = inputter.inputYesNo("Not found product! Do you want create new product (Y or N)?: ");
             if (isCreate) {
-                createProduct();
+                createFruit();
             }
         }
     }
-    
-    public void updateProduct(int id, int quantity) {
-        if (searchById(id) != null) {
-            for (Product product : this) {
-                if (product.getId() == id) {
-                    product.setQuantity(quantity);
-                    break;
-                }
-            }
-        } else {
-            System.out.println("Not found product!");
-        }
-    }
+ 
 
-    public void deleteProduct() {
+    public void deleteFruit() {
         int id = inputter.inputInt("Enter id product: ", 0);
         if (searchById(id) != null) {
-            for (Iterator<Product> iterator = this.iterator(); iterator.hasNext();) {
-                Product next = iterator.next();
+            for (Iterator<Fruit> iterator = this.iterator(); iterator.hasNext();) {
+                Fruit next = iterator.next();
                 if(next.getId() == id){
                     iterator.remove();
                     System.out.println("Remove product success!");

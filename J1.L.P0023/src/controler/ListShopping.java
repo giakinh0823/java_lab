@@ -30,14 +30,14 @@ public class ListShopping extends Hashtable<String, Shopping> {
         });
     }
 
-    public void shopping(ListProduct listProducts) {
-        listProducts.display();
+    public void shopping(ListFruit listFruit) {
+        listFruit.display();
         Shopping shopping = new Shopping();
         while (true) {
             int indexItem = 0;
             while (true) {
-                indexItem = inputter.inputInt("Select product (0 to exit): ", 0, listProducts.size());
-                if (indexItem == 0 || listProducts.get(indexItem - 1).getQuantity() > 0) {
+                indexItem = inputter.inputInt("Select product (0 to exit): ", 0, listFruit.size());
+                if (indexItem == 0 || listFruit.get(indexItem - 1).getQuantity() > 0) {
                     break;
                 } else {
                     System.out.println("Product is out of stock!");
@@ -46,20 +46,20 @@ public class ListShopping extends Hashtable<String, Shopping> {
             if (indexItem == 0) {
                 break;
             }
-            System.out.println("You selected: " + listProducts.get(indexItem - 1).getName());
-            int quantity = inputter.inputInt("Please input quantity: ", 1, listProducts.get(indexItem - 1).getQuantity());
+            System.out.println("You selected: " + listFruit.get(indexItem - 1).getName());
+            int quantity = inputter.inputInt("Please input quantity: ", 1, listFruit.get(indexItem - 1).getQuantity());
             boolean check = false;
             for (Order order : shopping.getOrders()) {
-                if (order.getProduct().getId() == listProducts.get(indexItem - 1).getId()) {
+                if (order.getFruit().getId() == listFruit.get(indexItem - 1).getId()) {
                     order.setQuantity(order.getQuantity() + quantity);
                     check = true;
                     break;
                 }
             }
             if (!check) {
-                shopping.getOrders().add(new Order(listProducts.get(indexItem - 1), quantity));
+                shopping.getOrders().add(new Order(listFruit.get(indexItem - 1), quantity));
             }
-            listProducts.get(indexItem - 1).setQuantity(listProducts.get(indexItem - 1).getQuantity() - quantity);
+            listFruit.get(indexItem - 1).setQuantity(listFruit.get(indexItem - 1).getQuantity() - quantity);
             boolean isOrderNow = inputter.inputYesNo("Do you want order now(Y or N)?: ");
             if (isOrderNow) {
                 break;
@@ -79,7 +79,7 @@ public class ListShopping extends Hashtable<String, Shopping> {
                         Order value = shopping.getOrders().get(j);
                         boolean isExit = false;
                         for (int i = 0; i < this.get(key).getOrders().size(); i++) {
-                            if (value.getProduct().getId() == this.get(key).getOrders().get(i).getProduct().getId()) {
+                            if (value.getFruit().getId() == this.get(key).getOrders().get(i).getFruit().getId()) {
                                 this.get(key).getOrders().get(i).setQuantity(value.getQuantity() + this.get(key).getOrders().get(i).getQuantity());
                                 isExit = true;
                                 break;

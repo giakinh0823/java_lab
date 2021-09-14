@@ -44,12 +44,12 @@ public class Shopping {
         System.out.println(new String().format("%s|%s|%s|%s", "Product","Quantity","Price ","Amount"));
         double total = 0;
         for (int i = 0; i <orders.size(); i++) {
-            total += orders.get(i).getQuantity()*orders.get(i).getProduct().getPrice();
+            total += orders.get(i).getQuantity()*orders.get(i).getFruit().getPrice();
             System.out.println(new String().format("%5s %5d %8.0f$ %8.0f$", 
-                    orders.get(i).getProduct().getName(), 
+                    orders.get(i).getFruit().getName(), 
                     orders.get(i).getQuantity(), 
-                    orders.get(i).getProduct().getPrice(),
-                    orders.get(i).getQuantity()*orders.get(i).getProduct().getPrice()));
+                    orders.get(i).getFruit().getPrice(),
+                    orders.get(i).getQuantity()*orders.get(i).getFruit().getPrice()));
         }
         System.out.println(new String().format("Total: %.0f$", total));
     }

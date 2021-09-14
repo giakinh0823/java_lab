@@ -9,7 +9,7 @@ package model;
  *
  * @author giaki
  */
-public class Product {
+public class Fruit {
     private static int countId = 1000; 
     private int id;
     private String name;
@@ -17,11 +17,11 @@ public class Product {
     private int quantity;
     private String origin;
 
-    public Product() {
+    public Fruit() {
         this.id = ++countId;
     }
 
-    public Product(String name, double price, int quantity, String origin) {
+    public Fruit(String name, double price, int quantity, String origin) {
         this.id = ++countId;
         this.name = name;
         this.price = price;
