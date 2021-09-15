@@ -9,11 +9,11 @@ package j1.s.h204;
  *
  * @author giaki
  */
-public class Transaction {
+public class Transaction { //Giao dịch
     private boolean transacionStatus; //Trạng thái giao dịch
     private int pennies; //đồng tiền
 
-    public Transaction(boolean transacionStatus, int pennies) { //Khởi tạo tiền và trạng thái giao dịch
+    public Transaction(boolean transacionStatus, int pennies) { //Khởi tạo giao dịch
         this.transacionStatus = transacionStatus;
         this.pennies = pennies;
     }

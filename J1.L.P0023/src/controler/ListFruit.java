@@ -25,12 +25,12 @@ public class ListFruit extends ArrayList<Fruit> {
         }
     }
     
-    public void displayHaveId(){
-        System.out.println(new String().format("|++%s++|++%s++|++%s++|++%s++|++%s++|", "Item","id","Fruit Name","Origin","Price", "Quantity"));
-        for (int i = 0; i <this.size(); i++) {
-            System.out.println(new String().format("%5d %8s %10s %12s %6.0f$ %10s",i+1,this.get(i).getId(),this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
-        }
-    }
+//    public void displayHaveId(){
+//        System.out.println(new String().format("|++%s++|++%s++|++%s++|++%s++|++%s++|", "Item","id","Fruit Name","Origin","Price", "Quantity"));
+//        for (int i = 0; i <this.size(); i++) {
+//            System.out.println(new String().format("%5d %8s %10s %12s %6.0f$ %10s",i+1,this.get(i).getId(),this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
+//        }
+//    }
 
     public Fruit searchById(int id) {
         for (Fruit fruit : this) {
@@ -64,7 +64,7 @@ public class ListFruit extends ArrayList<Fruit> {
     }
 
     public void updateFruit() {
-        displayHaveId();
+        display();
         int id = inputter.inputInt("Enter id product: ", 0);
         if (searchById(id) != null) {
             int quantity = inputter.inputInt("Enter quantity: ", 0);

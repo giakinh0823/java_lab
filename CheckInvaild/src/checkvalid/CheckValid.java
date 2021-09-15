@@ -84,5 +84,5 @@ public class CheckValid {
     Date date2 = CheckDate("Enter date(dd/MM/yyyy)", "dd/MM/yyyy");
     Date date3 = CheckDate("Enter date (MM/dd/yyyy)", "MM/dd/yyyy");
     Date date4 = CheckDate("Enter date {September-dd-yyyy", "MMMM-dd-yyyy");
-    Date date5 = CheckDate("Enter date {Sep-dd-yyyy", "MM-dd-yyyy");
+    Date date5 = CheckDate("Enter date {Sep-dd-yyyy", "MMM-dd-yyyy");
 }

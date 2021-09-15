@@ -10,7 +10,7 @@ package model;
  * @author giaki
  */
 public class Fruit {
-    private static int countId = 1000; 
+    private static int countId = 0; 
     private int id;
     private String name;
     private double price;
