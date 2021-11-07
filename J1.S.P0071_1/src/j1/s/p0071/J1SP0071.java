@@ -6,12 +6,11 @@
 package j1.s.p0071;
 
 import controler.ListTask;
-import controler.ListTaskType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import model.Task;
+import controler.Task;
 import util.Menu;
 
 /**
@@ -32,21 +31,19 @@ public class J1SP0071 {
         options.add("Delete task");
         options.add("Show task");
         options.add("Exit");
-        ListTaskType listTaskType = new ListTaskType();
-        ListTask listTask = new ListTask(listTaskType);
+        ListTask listTask = new ListTask();
         
         // Khởi tạo giá trị để test
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM-dd-yyyy");
         simpleDateFormat.setLenient(false);
         Date date = simpleDateFormat.parse("Aug-10-2021");
-        listTask.add(new Task(1, "Dev Program", date, 9.5, 17.5, "Developer", "Lead Dev", true));
+        listTask.add(new Task(1, "Dev Program", date, 9.5, 17.5, "Developer", "Lead Dev"));
         date = simpleDateFormat.parse("Dec-22-2021");
-        listTask.add(new Task(3, "Dev Design", date, 8.5, 17.5, "Designer", "Lead Design", true));
+        listTask.add(new Task(3, "Dev Design", date, 8.5, 17.5, "Designer", "Lead Design"));
         date = simpleDateFormat.parse("Sep-29-2021");
-        listTask.add(new Task(2, "Dev Test", date, 10.5, 15.5, "Tester", "Lead Test", true));
+        listTask.add(new Task(2, "Dev Test", date, 10.5, 15.5, "Tester", "Lead Test"));
         date = simpleDateFormat.parse("Jun-02-2021");
-        listTask.add(new Task(4, "Dev Review", date, 10.5, 12.5, "Reviewer", "Lead Review", true));
-        
+        listTask.add(new Task(4, "Dev Review", date, 10.5, 12.5, "Reviewer", "Lead Review"));
         
         while (true) {
             int choice = menu.getChoice(options);

@@ -28,11 +28,11 @@ public class J1LP0023 {
         ListShopping listShopping = new ListShopping();
         
         // Khởi tạo giá trị để test
-        listFruit.add(new Fruit("Apple", 10, 20, "Vietname"));
-        listFruit.add(new Fruit("Orange", 7, 25, "Thailand"));
-        listFruit.add(new Fruit("Coco", 18, 30, "France"));
-        listFruit.add(new Fruit("Grape", 8, 15, "US"));
-        listFruit.add(new Fruit("banana", 15, 42, "Japan"));
+        listFruit.add(new Fruit(1,"Apple", 10, 20, "Vietname"));
+        listFruit.add(new Fruit(2,"Orange", 7, 25, "Thailand"));
+        listFruit.add(new Fruit(3,"Coco", 18, 30, "France"));
+        listFruit.add(new Fruit(4,"Grape", 8, 15, "US"));
+        listFruit.add(new Fruit(5,"banana", 15, 42, "Japan"));
         
         ArrayList<String> options = new  ArrayList<String>();
         options.add("Create Fruit");

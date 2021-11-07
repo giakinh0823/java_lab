@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package controler;
 
 import java.util.Date;
 
@@ -27,10 +27,8 @@ public class Task {
         this.id = ++idTask;
     }
 
-    public Task(int taskTypeID, String name, Date date, double planFrom, double planTo, String assignee, String reviewer, Boolean isContructor) {
-        if (isContructor) {
-            this.id = ++idTask;
-        }
+    public Task(int taskTypeID, String name, Date date, double planFrom, double planTo, String assignee, String reviewer) {
+        this.id = ++idTask;
         this.taskTypeID = taskTypeID;
         this.name = name;
         this.date = date;
@@ -38,30 +36,6 @@ public class Task {
         this.planTo = planTo;
         this.assignee = assignee;
         this.reviewer = reviewer;
-    }
-
-    public void update(Task task) {
-        if (task.getTaskTypeID() != 0) {
-            this.taskTypeID = task.getTaskTypeID();
-        }
-        if (task.getName() != null) {
-            this.name = task.getName();
-        }
-        if (task.getDate() != null) {
-            this.date = task.getDate();
-        }
-        if(task.getPlanFrom()!=-1){
-            this.planFrom = task.getPlanFrom();
-        }
-        if(task.getPlanTo()!=-1){
-            this.planTo = task.getPlanTo();
-        }
-        if (task.getAssignee() != null) {
-            this.assignee = task.getAssignee();
-        }
-        if (task.getReviewer() != null) {
-            this.reviewer = task.getReviewer();
-        }
     }
 
     public static int getIdTask() {

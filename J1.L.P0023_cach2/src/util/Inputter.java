@@ -8,8 +8,6 @@ package util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,15 +38,10 @@ public class Inputter {
 
     public int inputInt(String message, int min) {
         int number = 0;
-        String str;
         do {
             try {
                 System.out.print(message);
-                str = bufferedReader.readLine().trim();
-                if(str.toLowerCase().equals("nope")){
-                    return 0;
-                }
-                number = Integer.parseInt(str);
+                number = Integer.parseInt(bufferedReader.readLine().trim());
                 if (number < min) {
                     System.out.println("Please input number => " + min);
                     continue;
@@ -73,9 +66,7 @@ public class Inputter {
         do {
             try {
                 System.out.print(message);
-                String input = bufferedReader.readLine().trim();
-                if(input.trim().equals("nope")) return 0;
-                number = Integer.parseInt(input);
+                number = Integer.parseInt(bufferedReader.readLine().trim());
                 if (number < min || number > max) {
                     System.out.println("Please input number (" + min + "->" + max + ")");
                     continue;
@@ -151,38 +142,6 @@ public class Inputter {
         } while (true);
         return number;
     }
-    
-     public double inputDouble(String message, double min, double max, double multiples) {
-        if (min > max) {
-            double z = min;
-            min = max;
-            max = min;
-        }
-        double number = 0;
-        String input;
-        do {
-            try {
-                System.out.print(message);
-                input = bufferedReader.readLine().trim();
-                if(input.toLowerCase().equals("nope")) return -1;
-                number = Double.parseDouble(input);
-                if (number < min || number > max) {
-                    System.out.println("Please input number (" + min + "->" + max + ")");
-                    continue;
-                }
-                if(number % multiples != 0){
-                    System.out.println("Pleasse enter a multiple of "+multiples);
-                    continue;
-                }
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Please input number!");
-            } catch (IOException ex) {
-                System.out.println("Something error!");
-            }
-        } while (true);
-        return number;
-    }
 
     public String inputString(String message) {
         String str = null;
@@ -207,7 +166,6 @@ public class Inputter {
             System.out.print(message);
             try {
                 str = bufferedReader.readLine().trim();
-                if(str.toLowerCase().equals("nope")) return null;
                 if (!str.matches(regex)) {
                     System.out.println("Please follow " + regex);
                 }
@@ -271,26 +229,5 @@ public class Inputter {
             }
         } while (!str.toLowerCase().equals("y") && !str.toLowerCase().equals("n"));
         return str.toLowerCase().equals("y") ? true : false;
-    }
-    
-    public Date inputDate(String message, String format) {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
-        simpleDateFormat.setLenient(false);
-        String str;
-        while (true){
-            System.out.print(message);
-            try {
-                str = bufferedReader.readLine().trim();
-                if(str.toLowerCase().equals("nope")){
-                    return null;
-                }
-                date = simpleDateFormat.parse(str);
-                break;
-            } catch (Exception e) {
-                System.out.println("Invalid date input, please reenter by following: '" + format + "'");
-            }
-        };
-        return date;
     }
 }

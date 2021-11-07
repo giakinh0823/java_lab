@@ -18,19 +18,26 @@ public class ListFruit extends ArrayList<Fruit> {
 
     private final Inputter inputter = new Inputter();
     
-    public void display(){
+    public ListFruit display(){
         System.out.println(new String().format("|++%s++|++%s++|++%s++|++%s++|++%s++|", "Item","Fruit Name","Origin","Price", "Quantity"));
+        ListFruit listFruit = new ListFruit();
+        int dem =0;
         for (int i = 0; i <this.size(); i++) {
-            System.out.println(new String().format("%5d %15s %12s %6.0f$ %10s",i+1,this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
+           if(this.get(i).getQuantity()>0){
+               listFruit.add(this.get(i));
+               System.out.println(new String().format("%5d %15s %12s %6.0f$ %10s",dem+1,this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
+               dem++;
+           }
         }
+        return listFruit;
     }
     
-//    public void displayHaveId(){
-//        System.out.println(new String().format("|++%s++|++%s++|++%s++|++%s++|++%s++|", "Item","id","Fruit Name","Origin","Price", "Quantity"));
-//        for (int i = 0; i <this.size(); i++) {
-//            System.out.println(new String().format("%5d %8s %10s %12s %6.0f$ %10s",i+1,this.get(i).getId(),this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
-//        }
-//    }
+    public void displayHaveId(){
+        System.out.println(new String().format("|++%s++|++%s++|++%s++|++%s++|++%s++|", "Item","id","Fruit Name","Origin","Price", "Quantity"));
+        for (int i = 0; i <this.size(); i++) {
+            System.out.println(new String().format("%5d %8s %10s %12s %6.0f$ %10s",i+1,this.get(i).getId(),this.get(i).getName(), this.get(i).getOrigin(), this.get(i).getPrice(), this.get(i).getQuantity()));
+        }
+    }
 
     public Fruit searchById(int id) {
         for (Fruit fruit : this) {
@@ -64,16 +71,12 @@ public class ListFruit extends ArrayList<Fruit> {
     }
 
     public void updateFruit() {
-        display();
+        displayHaveId();
         int id = inputter.inputInt("Enter id product: ", 0);
-        if (searchById(id) != null) {
+        Fruit fruit=null;
+        if ((fruit=searchById(id)) != null) {
             int quantity = inputter.inputInt("Enter quantity: ", 0);
-            for (Fruit fruit : this) {
-                if (fruit.getId() == id) {
-                    fruit.setQuantity(quantity);
-                    break;
-                }
-            }
+            fruit.setQuantity(fruit.getQuantity()+quantity);
             display();
         } else {
             boolean isCreate = inputter.inputYesNo("Not found product! Do you want create new product (Y or N)?: ");

@@ -50,6 +50,7 @@ public class Shopping {
                     orders.get(i).getQuantity(), 
                     orders.get(i).getFruit().getPrice(),
                     orders.get(i).getQuantity()*orders.get(i).getFruit().getPrice()));
+            System.out.println(orders.get(i).getFruit().getQuantity());
         }
         System.out.println(new String().format("Total: %.0f$", total));
     }
